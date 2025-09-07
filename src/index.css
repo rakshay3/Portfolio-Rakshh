@@ -1,0 +1,31 @@
+@import "tailwindcss";
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --accent: #0f766e;
+}
+
+.btn {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium shadow-sm;
+}
+
+.card {
+  @apply bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow-md;
+}
+
+.card {
+  @apply bg-white/80 dark:bg-slate-800 backdrop-blur-md rounded-2xl p-6 shadow-md;
+}
+/* .btn {
+  @apply inline-flex items-center gap-2 px-4 py-2 rounded-lg font-medium shadow-sm 
+         bg-teal-600 text-white hover:bg-teal-700
+         dark:bg-teal-500 dark:hover:bg-teal-600;
+}
+
+.card {
+  @apply bg-white/80 dark:bg-gray-900/80 
+         text-gray-800 dark:text-gray-100
+         backdrop-blur-md rounded-2xl p-6 shadow-md;
+} */
