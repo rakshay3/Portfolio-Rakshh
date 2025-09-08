@@ -192,7 +192,7 @@ export default function App() {
 
         {/* Mobile dropdown */}
         {isOpen && (
-          <div className="absolute top-full left-0 w-full bg-white dark:bg-slate-900 shadow-md flex flex-col items-center space-y-4 py-6 md:hidden z-50">
+          <div className="fixed top-full left-0 w-full bg-white dark:bg-slate-900 shadow-md flex flex-col items-center space-y-4 py-6 md:hidden z-50">
             {navLinks.map((link) => (
               <a
                 key={link.id}
