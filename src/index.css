@@ -5,6 +5,7 @@ html {
 
 :root {
   --accent: #0f766e;
+  scroll-padding-top: 7rem; 
 }
 
 .btn {

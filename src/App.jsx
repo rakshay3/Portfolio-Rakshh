@@ -98,6 +98,7 @@
 //before - toggle
 import React, { useEffect, useState } from "react";
 import { FaBars, FaTimes, FaMoon, FaSun } from "react-icons/fa"; // add moon/sun icons
+import { motion, AnimatePresence } from "framer-motion";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Experience from "./components/Experience";
@@ -154,9 +155,66 @@ export default function App() {
     { id: "contact", label: "Contact" },
   ];
 
+// Hide/show header on scroll
+// const [showHeader, setShowHeader] = useState(true);
+// const [lastScrollY, setLastScrollY] = useState(0);
+
+// useEffect(() => {
+//   const handleScroll = () => {
+//     if (window.scrollY > lastScrollY) {
+//       // scrolling down → hide header
+//       setShowHeader(false);
+//     } else {
+//       // scrolling up → show header
+//       setShowHeader(true);
+//     }
+//     setLastScrollY(window.scrollY);
+//   };
+
+//   window.addEventListener("scroll", handleScroll);
+//   return () => window.removeEventListener("scroll", handleScroll);
+// }, [lastScrollY]);
+
+// Optional: Change header style on scroll(shadow)
+// const [scrolled, setScrolled] = useState(false);
+
+// useEffect(() => {
+//   const handleScroll = () => {
+//     setScrolled(window.scrollY > 0);
+//   };
+
+//   window.addEventListener("scroll", handleScroll);
+//   return () => window.removeEventListener("scroll", handleScroll);
+// }, []);
+
+{/* // Add framer-motion for slide in/out(while scrolling)
+<motion.header
+  initial={{ y: 0 }}
+  animate={{ y: showHeader ? 0 : "-100%" }}
+  transition={{ duration: 0.4, ease: "easeInOut" }}
+  className="fixed top-0 left-0 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-md shadow-md z-50"
+  
+  // Add shadow on scroll
+  // className={`fixed top-0 left-0 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-md z-50 transition-shadow ${
+  //   scrolled ? "shadow-md" : "shadow-none"
+  // }`}
+
+> */}
+
   return (
     <div className="min-h-screen bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-100 transition-colors duration-500">
-      {/* HEADER */}
+      {/* //frosted glass blur effect */}
+      {/* <header className="fixed top-0 left-0 w-full bg-white/70 dark:bg-slate-900/70 backdrop-blur-md shadow-md z-50"> */}
+
+{/* // Optional: Animated header on Pageload using Framer Motion
+      {/* <motion.header
+  initial={{ y: -50, opacity: 0 }}      // start above & invisible
+  animate={{ y: 0, opacity: 1 }}        // slide down & fade in
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  className="fixed top-0 left-0 w-full bg-white dark:bg-slate-900 shadow-md z-50"
+  ></motion.header> */}
+
+  {/* HEADER */}
 <header className="fixed top-0 left-0 w-full bg-white dark:bg-slate-900 shadow-md z-50">
   <div className="max-w-5xl mx-auto p-6 flex justify-between items-center relative">
     <div className="flex items-center gap-4">
@@ -207,7 +265,32 @@ export default function App() {
       ))}
     </div>
   )}
-</header>
+  </header>
+
+  {/* Optional: Animated mobile dropdown using Framer Motion */}
+  {/* <AnimatePresence>
+  {isOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      transition={{ duration: 0.3 }}
+      className="absolute top-full left-0 w-full bg-white/90 dark:bg-slate-900/90 backdrop-blur-md shadow-md flex flex-col items-center space-y-4 py-6 md:hidden z-40"
+    >
+      {navLinks.map((link) => (
+        <a
+          key={link.id}
+          href={`#${link.id}`}
+          className="text-sm hover:underline"
+          onClick={() => setIsOpen(false)} // close after click
+        >
+          {link.label}
+        </a>
+      ))}
+    </motion.div>
+  )}
+</AnimatePresence> */}
+
 
       {/* MAIN */}
       <main className="max-w-5xl mx-auto p-6 space-y-12 pt-32">
